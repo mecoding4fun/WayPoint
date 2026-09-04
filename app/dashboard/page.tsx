@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import DashboardNavbar from "../components/DashboardNav";
 import AddApplicationButton from "../components/AddApplicationButton";
 import ApplicationCardButton from "../components/ApplicationCardButton";
+import SearchableBoard from "../components/SearchableBoard";  
 
 
 function getGreeting(): string {
@@ -178,40 +179,7 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {columns.map((status) => {
-              const apps = applications.filter((a) => a.status === status);
-              const config = STATUS_CONFIG[status];
-              return (
-                <div key={status}>
-                  <div className="flex items-center justify-between mb-3 px-0.5">
-                    <div className="flex items-center gap-2 text-sm font-semibold">
-                      <span className={`w-2 h-2 rounded-full ${config.dot}`} />
-                      {status}
-                    </div>
-                    <span className="font-mono text-xs text-[#4A5C7A] bg-white border border-[#E4E0D6] rounded-full px-2.5 py-0.5">
-                      {apps.length}
-                    </span>
-                  </div>
-                  <div className="bg-[#F1EEE4] rounded-xl p-2.5 min-h-[420px] flex flex-col gap-2.5">
-                    {apps.map((app) => (
-                    <ApplicationCardButton
-                      key={app.id}
-                      app={app}
-                      date={
-                        app.status === "Interview" && app.interviewDate
-                          ? app.interviewDate.toLocaleDateString("en-US", { month: "short", day: "numeric" })
-                          : app.appliedDate.toLocaleDateString("en-US", { month: "short", day: "numeric" })
-                      }
-                      location="—"
-                      tagClass={config.tag}
-                    />
-                  ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <SearchableBoard applications={applications} />
           
         </section>
 
