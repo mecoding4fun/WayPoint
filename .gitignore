@@ -1,41 +1,48 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# ---------- Dependencies ----------
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.pnp.js
+.yarn/install-state.gz
 
-# testing
-/coverage
-
-# next.js
+# ---------- Next.js ----------
 /.next/
 /out/
+next-env.d.ts
 
-# production
+# ---------- Production build ----------
 /build
 
-# misc
-.DS_Store
-*.pem
+# ---------- Environment variables (CRITICAL — never commit these) ----------
+.env
+.env*.local
+.env.development
+.env.production
+.env.test
 
-# debug
+# ---------- Prisma ----------
+# Generated client (regenerated via `npx prisma generate`, don't need to commit)
+/lib/generated/prisma
+
+# ---------- Vercel ----------
+.vercel
+
+# ---------- TypeScript ----------
+*.tsbuildinfo
+
+# ---------- Debug logs ----------
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ---------- OS-specific junk ----------
+.DS_Store
+Thumbs.db
 
-# vercel
-.vercel
+# ---------- Editor folders ----------
+.vscode/*
+!.vscode/extensions.json
+.idea
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ---------- Stripe CLI ----------
+.stripe/
