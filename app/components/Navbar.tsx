@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LogoMark from "../designs/Logo";
 
 export default function Navbar(){
@@ -12,24 +13,21 @@ export default function Navbar(){
                 </div>
             </div>
             <div className="p-4 text-[#4e5b77] flex items-center justify-between space-x-10">
-                <a href="#features">
-                    Feature
-                </a>
-                <a href="#products">
-                    Product
-                </a>
-                <a href="#pricing">
+                <Link href="#features" className="hover:text-[#1E2430] transition-colors">
+                    Features
+                </Link>
+                <Link href="#pricing" className="hover:text-[#1E2430] transition-colors">
                     Pricing
-                </a>
+                </Link>
             </div>
             <div className="p-4 text-[#4e5b77] flex items-center justify-between space-x-6 max-w mr-35">
-                <a href="sign-in">
+                <Link href="/sign-in">
                     Sign in
-                </a>
+                </Link>
                <div className="bg-black rounded p-3">
-                    <a className="text-white m-3" href="sign-up">
+                    <Link className="text-white m-3" href="/sign-up">
                         Get Started
-                    </a>
+                    </Link>
                </div>
                 
             </div>

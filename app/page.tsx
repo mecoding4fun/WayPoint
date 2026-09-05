@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 export default async function Home() {
   const { userId } = await auth();
   if (userId) redirect("/dashboard");
@@ -11,7 +12,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
 
-      <section className="max-w-6xl mx-auto px-6 py-24 border-t border-gray-200">
+      <section id="features" className="max-w-6xl mx-auto px-6 py-24 border-t border-gray-200">
         <div className="max-w-xl mb-14">
           <p className="text-xs font-mono uppercase tracking-[0.05em] text-gray-500 mb-3">
             Why it's different
@@ -57,7 +58,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-24 border-t border-gray-200">
+      <section id="pricing" className="max-w-6xl mx-auto px-6 py-24 border-t border-gray-200">
         <div className="max-w-xl mb-14">
           <p className="text-xs font-mono uppercase tracking-[0.05em] text-gray-500 mb-3">
             Pricing
@@ -119,9 +120,9 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <p className="text-sm text-gray-500">Built as a learning project — not a real product.</p>
           <div className="flex gap-7 text-sm text-gray-500">
-            <a href="#" className="hover:text-[#1E2430]">GitHub</a>
-            <a href="#" className="hover:text-[#1E2430]">Features</a>
-            <a href="#" className="hover:text-[#1E2430]">Pricing</a>
+            <Link href="#" className="hover:text-[#1E2430]">GitHub</Link>
+            <Link href="#" className="hover:text-[#1E2430]">Features</Link>
+            <Link href="#" className="hover:text-[#1E2430]">Pricing</Link>
           </div>
         </div>
       </footer>

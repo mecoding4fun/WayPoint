@@ -37,3 +37,7 @@ body {
 .cl-badge {
   display: none !important;
 }
+
+html {
+  scroll-behavior: smooth;
+}
