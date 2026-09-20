@@ -7,8 +7,28 @@ export default async function Home() {
   const { userId } = await auth();
   if (userId) redirect("/dashboard");
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Waypoint",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Waypoint turns your scattered job search into one visible pipeline. Track applications, interviews, and offers in one place.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    url: "https://waypoint.mecoding4fun.com",
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <Hero />
 
