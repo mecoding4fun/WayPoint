@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     description: "Every application, on one honest map.",
     images: ["/og-image.png"],
   },
+  verification: {
+    google: "dmEeXBjhjIqXxswVStx7kcMR0dN9UZ0Y_B_sQ0Rub_8",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
